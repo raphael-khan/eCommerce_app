@@ -57,12 +57,16 @@ const ProductScreen = () => {
                   <Col>
                     {product.countInStock > 0
                       ? "In Stock"
-                      : "Sorry, out of stock. Please check back"}
+                      : "Out of stock. Please check back soon !"}
                   </Col>
                 </Row>
               </ListGroupItem>
               <ListGroupItem>
-                <Button className='btn-block btn-success' type='button'>
+                <Button
+                  className='btn-block btn-success'
+                  type='button'
+                  disabled={product.countInStock === 0}
+                >
                   Add To Cart
                 </Button>
               </ListGroupItem>
