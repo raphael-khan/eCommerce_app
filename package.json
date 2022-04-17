@@ -10,6 +10,7 @@
   "description": "Wired Coffee Shop made with reactJS, MongoDB backened, Express and Node. \r Work in progres..",
   "version": "1.0.0",
   "main": "server.js",
+  "type": "module",
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
