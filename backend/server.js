@@ -8,12 +8,12 @@ app.get("/", (req, res) => {
 })
 
 app.get("/api/products", (req, res) => {
-  res.json(products)
+  res.send(products)
 })
 
 app.get("/api/products/:id", (req, res) => {
   const product = products.find((p) => p._id === req.params.id)
-  res.json(product)
+  res.send(product)
 })
 
 app.listen(5000, console.log("server running"))
