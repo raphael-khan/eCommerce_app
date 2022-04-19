@@ -3,7 +3,7 @@ import mongoose from "mongoose"
 const reviewSchema = mongoose.Schema(
   {
     name: {
-      type: string,
+      type: String,
       required: true,
     },
     rating: {
@@ -11,7 +11,7 @@ const reviewSchema = mongoose.Schema(
       required: true,
     },
     comment: {
-      type: string,
+      type: String,
       required: true,
     },
   },
@@ -28,15 +28,15 @@ const productSchema = mongoose.Schema(
       ref: "User",
     },
     name: {
-      type: string,
+      type: String,
       required: true,
     },
     image: {
-      type: string,
+      type: String,
       required: true,
     },
     description: {
-      type: string,
+      type: String,
       required: true,
     },
     rating: {
