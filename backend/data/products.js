@@ -1,6 +1,5 @@
 const products = [
   {
-    _id: "1",
     name: "Welcome to Wired !",
     image: "/images/coffee_main.jpg",
     description: "Welcome to the best coffee shop in town.",
@@ -10,7 +9,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "2",
     name: "Mad Man",
     image: "/images/coffee_1.jpg",
     description: "Our most hyped espresso.",
@@ -20,7 +18,6 @@ const products = [
     numReviews: 8,
   },
   {
-    _id: "3",
     name: "Early Bird.",
     image: "/images/coffee_2.jpg",
     description:
@@ -31,7 +28,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "4",
     name: "BattleCreek",
     image: "/images/coffee_3.jpg",
     description:
@@ -42,7 +38,6 @@ const products = [
     numReviews: 12,
   },
   {
-    _id: "5",
     name: "Never Settle For Good Enough",
     image: "/images/coffee_4.jpg",
     description:
@@ -53,7 +48,6 @@ const products = [
     numReviews: 10,
   },
   {
-    _id: "6",
     name: "Little Nap",
     image: "/images/coffee_5.jpg",
     description: "Light and creamy. Our only decaf roast.",
