@@ -3,11 +3,9 @@ import dotenv from "dotenv"
 import users from "./data/users.js"
 import products from "./data/products.js"
 import User from "./models/userModel.js"
-import User from "./models/productModel.js"
-import User from "./models/orderModel.js"
-import connectDB from "./config/db.js"
-import Order from "./models/orderModel.js"
 import Product from "./models/productModel.js"
+import Order from "./models/orderModel.js"
+import connectDB from "./config/db.js"
 
 dotenv.config()
 
@@ -51,4 +49,10 @@ const destroyData = async () => {
     console.error(`${error}`)
     process.exit(1)
   }
+}
+
+if (process.argv[2] === "-d") {
+  destroyData()
+} else {
+  importData()
 }
