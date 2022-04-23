@@ -7,6 +7,7 @@ const router = express.Router()
 //@desc   Fetch all products
 //@route  GET /api/products
 //@access  Public.
+//@asyncHandler helps catch errors without the Try block.
 router.get(
   "/",
   asyncHandler(async (req, res) => {
