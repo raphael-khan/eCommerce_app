@@ -13,6 +13,7 @@ app.get("/", (req, res) => {
   res.send("API is running")
 })
 
+// mount it.
 app.use("/api/products", productRoutes)
 
 const PORT = process.env.PORT || 5000

@@ -12,7 +12,7 @@ router.get(
   "/",
   asyncHandler(async (req, res) => {
     const products = await Product.find({}) // Passing an empty object to get everything. Mongoose method returns a promise.
-    res.send(products)
+    res.json(products)
   })
 )
 
