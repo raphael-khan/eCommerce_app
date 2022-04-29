@@ -9,5 +9,6 @@ Other technologies used:
   * Axios. 
   * Heruko.
   * Paypal. 
-  
+ 
+ 
 ![image](https://user-images.githubusercontent.com/89990638/164913311-79de501e-cdfc-489b-8ad5-1f029b38eba3.png)
