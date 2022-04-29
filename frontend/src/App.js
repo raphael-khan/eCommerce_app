@@ -3,22 +3,22 @@ import Footer from "./components/Footer"
 import { Container } from "react-bootstrap"
 import HomeScreen from "./screens/HomeScreen"
 import ProductScreen from "./screens/ProductScreen"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
       <main className='py-3'>
         <Container>
-          <Router>
+          <Routes>
             <Route path='/' element={<HomeScreen />} />
             <Route path='/product/:id' element={<ProductScreen />} />
-          </Router>
+          </Routes>
         </Container>
       </main>
       <Footer />
-    </Router>
+    </BrowserRouter>
   )
 }
 
