@@ -6,6 +6,7 @@ import {
 import axios from "axios"
 
 // dispatch dispatches the actions.
+// axios gives us access to the data.
 
 export const listProducts = () => async (dispatch) => {
   try {
