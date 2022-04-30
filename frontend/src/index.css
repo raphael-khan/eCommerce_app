@@ -14,5 +14,5 @@ h5 {
 h4 {
   padding: 0.3rem;
   color: orange;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }

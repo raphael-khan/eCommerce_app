@@ -21,7 +21,7 @@ const HomeScreen = () => {
 
   return (
     <>
-      <h4> Welcome to Wired ! </h4>
+      <h4>Let's get caffeinated. Shop Around ! </h4>
       {loading ? (
         <Loader />
       ) : error ? (

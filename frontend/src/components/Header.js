@@ -10,6 +10,7 @@ const Header = () => {
           <LinkContainer to='/'>
             <Navbar.Brand>Wired !</Navbar.Brand>
           </LinkContainer>
+          <i className='fa-regular fa-mug-hot'></i>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ms-auto'>
