@@ -23,7 +23,7 @@ const ProductScreen = () => {
   const { loading, error, product } = productDetails
 
   useEffect(() => {
-    dispatch(listProductDetails(params))
+    dispatch(listProductDetails(params.id))
   }, [dispatch, params])
 
   return (
