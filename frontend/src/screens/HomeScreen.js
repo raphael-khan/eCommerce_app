@@ -3,6 +3,8 @@ import { Row, Col } from "react-bootstrap"
 import Product from "../components/Product"
 import { useDispatch, useSelector } from "react-redux"
 import { listProducts } from "../actions/productActions"
+import Loader from "../components/Loader"
+import Message from "../components/Message"
 
 // useDispatch to fire off the action.
 // useSelector to read the updated state and pull out what we want from it.
@@ -21,9 +23,9 @@ const HomeScreen = () => {
     <>
       <h4> Welcome to Wired ! </h4>
       {loading ? (
-        <h2>Loading..</h2>
+        <Loader />
       ) : error ? (
-        <h3>{error}</h3>
+        <Message variant='warning'>{error}</Message>
       ) : (
         <Row>
           {products.map((product) => (
