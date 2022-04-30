@@ -1,7 +1,16 @@
 import React, { useEffect } from "react"
 import { Link, useParams, useLocation } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
-import { Row, Col, ListGroup, Image, Form, Button, Card } from "react-bootstrap"
+import {
+  Row,
+  Col,
+  ListGroup,
+  Image,
+  Form,
+  Button,
+  Card,
+  ListGroupItem,
+} from "react-bootstrap"
 import Message from "../components/Message"
 import { addToCart } from "../actions/cartActions"
 
@@ -26,7 +35,9 @@ const CartScreen = () => {
   const removeFromCartHandler = (id) => {
     console.log("remove")
   }
-
+  const checkoutHandler = () => {
+    console.log("checkout")
+  }
   return (
     <Row>
       <Col md={8}>
@@ -51,7 +62,7 @@ const CartScreen = () => {
                     <Form.Control
                       className='form-select'
                       as='select'
-                      value={qty}
+                      value={item.qty}
                       onChange={(e) =>
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
@@ -80,8 +91,33 @@ const CartScreen = () => {
           </ListGroup>
         )}
       </Col>
-      <Col md={2}></Col>
-      <Col md={2}></Col>
+      <Col md={4}>
+        <Card>
+          <ListGroup variant='flush'>
+            <ListGroup.Item>
+              <h4>
+                Total items : (
+                {cartItems.reduce((acc, item) => acc + item.qty, 0)})
+              </h4>
+              $
+              {cartItems
+                .reduce((acc, item) => acc + item.qty * item.price, 0)
+                .toFixed(2)}
+            </ListGroup.Item>
+            <ListGroupItem>
+              <Button
+                variant='success'
+                type='button'
+                className='btn-block'
+                disabled={cartItems.length === 0}
+                onClick={checkoutHandler}
+              >
+                Proceed To Checkout
+              </Button>
+            </ListGroupItem>
+          </ListGroup>
+        </Card>
+      </Col>
     </Row>
   )
 }

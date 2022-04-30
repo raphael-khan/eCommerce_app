@@ -10,3 +10,9 @@ h5 {
 .rating span {
   margin: 0.1rem;
 }
+
+h4 {
+  padding: 0.3rem;
+  color: orange;
+  text-transform: capitalize;
+}
