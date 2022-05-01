@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Link, useParams, useLocation } from "react-router-dom"
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import {
   Row,
@@ -18,6 +18,7 @@ const CartScreen = () => {
   const params = useParams()
   const productId = params.id
   const location = useLocation()
+  const navigate = useNavigate()
 
   const qty = new URLSearchParams(location.search).get("qty")
 
@@ -37,7 +38,7 @@ const CartScreen = () => {
   }
 
   const checkoutHandler = () => {
-    console.log("checkout")
+    navigate("/shipping")
   }
   return (
     <Row>
