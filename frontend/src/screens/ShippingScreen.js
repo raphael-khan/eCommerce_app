@@ -3,16 +3,24 @@ import { useNavigate } from "react-router-dom"
 import { Form, Button } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import FormContainer from "../components/FormContainer"
+import { saveShippingAddress } from "../actions/cartActions"
 
 const ShippingScreen = () => {
-  const [address, setAddress] = useState("")
-  const [city, setCity] = useState("")
-  const [zipCode, setZipCode] = useState("")
-  const [country, setCountry] = useState("")
+  const cart = useSelector((state) => state.cart)
+  const { shippingAddress } = cart
+
+  const [address, setAddress] = useState(shippingAddress.address)
+  const [city, setCity] = useState(shippingAddress.city)
+  const [zipCode, setZipCode] = useState(shippingAddress.zipCode)
+  const [country, setCountry] = useState(shippingAddress.country)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log("submit")
+    dispatch(saveShippingAddress({ address, city, zipCode, country }))
+    navigate("/payment")
   }
 
   return (
@@ -60,7 +68,7 @@ const ShippingScreen = () => {
           ></Form.Control>
         </Form.Group>
         <br></br>
-        <Button type='submit' variant='warning' className='btn-block mr-1'>
+        <Button type='submit' variant='warning'>
           Continue
         </Button>
       </Form>
