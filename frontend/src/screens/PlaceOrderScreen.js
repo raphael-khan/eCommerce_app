@@ -14,7 +14,7 @@ const PlaceOrderScreen = () => {
     0
   )
   cart.shippingPrice = cart.itemsPrice > 35 ? 0 : 5.99
-  cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(2))
+  cart.taxPrice = (0.15 * cart.itemsPrice).toFixed(2)
 
   cart.totalPrice = (
     Number(cart.itemsPrice) +
@@ -58,7 +58,7 @@ const PlaceOrderScreen = () => {
                             alt={item.name}
                             fluid
                             rounded
-                          ></Image>
+                          />
                         </Col>
                         <Col>
                           <Link to={`/product/${item.product}`}>
@@ -76,7 +76,7 @@ const PlaceOrderScreen = () => {
             </ListGroup.Item>
           </ListGroup>
         </Col>
-        <col md={4}>
+        <Col md={4}>
           <Card>
             <ListGroup variant='flush'>
               <ListGroup.Item>
@@ -84,30 +84,31 @@ const PlaceOrderScreen = () => {
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Items</Col>
+                  <Col>Items Price:</Col>
                   <Col>${cart.itemsPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Shipping</Col>
+                  <Col>Shipping & Handling:</Col>
                   <Col>${cart.shippingPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Tax</Col>
+                  <Col>Tax:</Col>
                   <Col>${cart.taxPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Row>
-                  <Col>Total</Col>
+                  <Col>Total:</Col>
                   <Col>${cart.totalPrice}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
                 <Button
+                  variant='success'
                   type='button'
                   className='btn-block'
                   disabled={cart.cartItems.length === 0}
@@ -118,7 +119,7 @@ const PlaceOrderScreen = () => {
               </ListGroup.Item>
             </ListGroup>
           </Card>
-        </col>
+        </Col>
       </Row>
     </>
   )
