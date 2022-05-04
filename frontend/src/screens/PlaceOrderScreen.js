@@ -1,20 +1,28 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import {
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  ListGroupItem,
-} from "react-bootstrap"
+import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import Message from "../components/Message"
 import CheckoutSteps from "../components/CheckoutSteps"
 
 const PlaceOrderScreen = () => {
   const cart = useSelector((state) => state.cart)
+
+  // Calculate Prices.
+  cart.itemsPrice = cart.cartItems.reduce(
+    (acc, item) => acc + item.price * item.qty,
+    0
+  )
+  cart.shippingPrice = cart.itemsPrice > 35 ? 0 : 5.99
+  cart.taxPrice = Number((0.15 * cart.itemsPrice).toFixed(2))
+
+  cart.totalPrice = (
+    Number(cart.itemsPrice) +
+    Number(cart.shippingPrice) +
+    Number(cart.taxPrice)
+  ).toFixed(2)
+
+  const placeOrderHandler = () => console.log("order")
 
   return (
     <>
@@ -102,9 +110,11 @@ const PlaceOrderScreen = () => {
                 <Button
                   type='button'
                   className='btn-block'
-                  disabled={cart.cartItems === 0}
+                  disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
-                ></Button>
+                >
+                  Place Order
+                </Button>
               </ListGroup.Item>
             </ListGroup>
           </Card>
