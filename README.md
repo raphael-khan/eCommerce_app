@@ -1,4 +1,4 @@
-# Wired Coffee Shop
+Roast Riders
 
 A fuctional eCommerce shop with full CRUD capabilities, user authentication and payment system integration. Made with reactJS, MongoDB for database, Express for route handling and Node for the back end. Deployed using Heroku. 
 Work in progres.. 
