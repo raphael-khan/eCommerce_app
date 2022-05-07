@@ -9,7 +9,7 @@ const Header = () => {
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              Wired !<i class='fa-regular fa-coffee-beans'></i>
+              Wired !<i className='fa-regular fa-coffee-beans'></i>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

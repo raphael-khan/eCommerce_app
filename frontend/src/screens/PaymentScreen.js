@@ -42,9 +42,9 @@ const PaymentScreen = () => {
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            <i class='fa-brands fa-cc-paypal'></i>
-            <i class='fa-brands fa-cc-visa'></i>
-            <i class='fa-brands fa-cc-mastercard'></i>
+            <i className='fa-brands fa-cc-paypal'></i>
+            <i className='fa-brands fa-cc-visa'></i>
+            <i className='fa-brands fa-cc-mastercard'></i>
             <Form.Check
               type='radio'
               label='Stripe'
