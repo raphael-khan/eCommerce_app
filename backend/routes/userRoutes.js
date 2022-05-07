@@ -1,5 +1,4 @@
 import express from "express"
-import { route } from "express/lib/application"
 import {
   authUser,
   getUserProfile,
@@ -11,6 +10,8 @@ const router = express.Router()
 
 router.route("/").post(registerUser)
 
+//@desc User login route.
+//@access Public.
 router.post("/login", authUser)
 
 //@desc User profile route.
