@@ -38,10 +38,19 @@ const RegisterScreen = () => {
   }
   return (
     <FormContainer>
-      <h4> Sign In </h4>
+      <h4> Sign Up.</h4>
       {error && <Message variant='warning'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
+        <Form.Group controlId='name'>
+          <Form.Label>Name:</Form.Label>
+          <Form.Control
+            type='name'
+            placeholder='Enter Name'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
         <Form.Group controlId='email'>
           <Form.Label>Email Address:</Form.Label>
           <Form.Control
@@ -61,16 +70,27 @@ const RegisterScreen = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
+
+        <Form.Group controlId='confirmPassword'>
+          <Form.Label> Password:</Form.Label>
+          <Form.Control
+            type='confirmPassword'
+            placeholder='Enter Your Password Again'
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          ></Form.Control>
+        </Form.Group>
+
         <br></br>
         <Button type='submit' variant='success'>
-          Sign In
+          Register
         </Button>
       </Form>
       <Row className='py-3'>
         <Col>
           New Customer ?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
-            Sign Up.
+          <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
+            Login
           </Link>
         </Col>
       </Row>
