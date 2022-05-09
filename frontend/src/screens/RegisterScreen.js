@@ -34,11 +34,17 @@ const RegisterScreen = () => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    // dispatch register
+    if (password !== confirmPassword) {
+      setMessage("Passwords do not match")
+    } else {
+      dispatch(register(name, email, password))
+    }
   }
+
   return (
     <FormContainer>
       <h4> Sign Up.</h4>
+      {message && <Message variant='warning'>{message}</Message>}
       {error && <Message variant='warning'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
