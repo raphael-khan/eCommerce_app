@@ -6,7 +6,7 @@ const Message = ({ variant, children }) => {
 }
 
 Message.defaultProps = {
-  variant: "warning",
+  variant: "danger",
 }
 
 export default Message
