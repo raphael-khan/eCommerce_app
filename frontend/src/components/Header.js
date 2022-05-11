@@ -12,8 +12,7 @@ const Header = () => {
   const logoutHandler = () => {
     dispatch(logout())
   }
-  const cart = useSelector((state) => state.cart)
-  const cartLen = cart.cartItems.length
+
   return (
     <header>
       <Navbar className='navbar-dark bg-primary' expand='lg' sticky='top'>

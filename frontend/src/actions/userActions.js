@@ -57,7 +57,7 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo")
   dispatch({ type: USER_LOGOUT })
   dispatch({ type: USER_DETAILS_RESET })
-  document.location.href = "/login"
+  document.location.href("/login")
 }
 
 // User register action.
