@@ -10,7 +10,7 @@ import PaymentScreen from "./screens/PaymentScreen"
 import PlaceOrderScreen from "./screens/PlaceOrderScreen"
 import LoginScreen from "./screens/LoginScreen"
 import RegisterScreen from "./screens/RegisterScreen"
-import ProfileScreen from "./screens/ProductScreen"
+import ProfileScreen from "./screens/ProfileScreen"
 
 const App = () => {
   return (
