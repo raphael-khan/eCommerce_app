@@ -20,7 +20,7 @@ const CartScreen = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const qty = new URLSearchParams(location.search).get("qty")
+  const qty = location.search ? Number(location.search.split("=")[1]) : 1
 
   const dispatch = useDispatch()
 
@@ -38,7 +38,8 @@ const CartScreen = () => {
   }
 
   const checkoutHandler = () => {
-    navigate("/shipping")
+    console.log("checkout handler worked")
+    navigate(`/login?redirect=${"/shipping"}`)
   }
   return (
     <Row>
