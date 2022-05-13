@@ -4,8 +4,11 @@ import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import Message from "../components/Message"
 import CheckoutSteps from "../components/CheckoutSteps"
+import { createOrder } from "../actions/orderActions"
 
 const PlaceOrderScreen = () => {
+  const dispatch = useDispatch
+
   const cart = useSelector((state) => state.cart)
 
   // Calculate Prices.
@@ -22,7 +25,19 @@ const PlaceOrderScreen = () => {
     Number(cart.taxPrice)
   ).toFixed(2)
 
-  const placeOrderHandler = () => console.log("order")
+  const placeOrderHandler = () => {
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.taxPrice,
+      })
+    )
+  }
 
   return (
     <>
