@@ -20,7 +20,6 @@ import Message from "../components/Message"
 
 const ProductScreen = () => {
   const params = useParams()
-  const navigate = useNavigate()
   const [qty, setQty] = useState(1)
 
   const dispatch = useDispatch()
@@ -32,6 +31,7 @@ const ProductScreen = () => {
     dispatch(listProductDetails(params.id))
   }, [dispatch, params])
 
+  const navigate = useNavigate()
   const addToCartHandler = () => {
     navigate(`/cart/${params.id}?qty=${qty}`)
   }
