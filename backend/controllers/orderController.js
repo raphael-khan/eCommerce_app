@@ -37,4 +37,14 @@ const addOrderItems = asyncHandler(async (req, res) => {
   }
 })
 
+//@desc   Get order by ID.
+//@route  GET /api/orders/:id
+//@access  Private
+//@asyncHandler helps catch errors without the Try block.
+
+const getOrderById = asyncHandler(async (req, res) => {
+  const order =
+})
+
+
 export { addOrderItems }
