@@ -43,8 +43,16 @@ const addOrderItems = asyncHandler(async (req, res) => {
 //@asyncHandler helps catch errors without the Try block.
 
 const getOrderById = asyncHandler(async (req, res) => {
-  const order =
+  const order = await Order.findById(req.params.id).populate(
+    "user",
+    "name email"
+  )
+  if (order) {
+    res.json(order)
+  } else {
+    res.status(404)
+    throw new Error("Order not found")
+  }
 })
 
-
-export { addOrderItems }
+export { addOrderItems, getOrderById }
