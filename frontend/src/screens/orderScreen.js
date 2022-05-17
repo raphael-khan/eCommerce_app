@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Button, Row, Col, ListGroup, Image, Card } from "react-bootstrap"
+import { Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import Message from "../components/Message"
@@ -12,12 +12,13 @@ const OrderScreen = ({ match }) => {
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
-  
-  if(!loading) {}
-      order.itemsPrice = order.orderItems.reduce(
-        (acc, item) => acc + item.price * item.qty,
-        0)
+
+  if (!loading) {
   }
+  order.itemsPrice = order.orderItems.reduce(
+    (acc, item) => acc + item.price * item.qty,
+    0
+  )
 
   useEffect(() => {
     dispatch(getOrderDetails(orderId))
@@ -36,11 +37,11 @@ const OrderScreen = ({ match }) => {
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
-              <strong>Name:</strong> {order.user.name}
+                <strong>Name:</strong> {order.user.name}
               </p>
               <p>
-              <strong>Email:</strong>
-              < a href={`mailto:${order.user.email}`}>{order.user.email} </a>
+                <strong>Email:</strong>
+                <a href={`mailto:${order.user.email}`}>{order.user.email} </a>
               </p>
               <p>
                 <strong>Address: </strong>
