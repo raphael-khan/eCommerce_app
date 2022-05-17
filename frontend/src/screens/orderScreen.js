@@ -48,12 +48,27 @@ const OrderScreen = ({ match }) => {
                 {order.shippingAddress.address}, {order.shippingAddress.city},
                 {order.shippingAddress.zipCode}, {order.shippingAddress.country}
               </p>
+              {order.isDelivered ? (
+                <Message variant='success'>
+                  Delivered on {order.deliveredAt}
+                </Message>
+              ) : (
+                <Message variant='danger'>Not Delivered</Message>
+              )}
             </ListGroup.Item>
             <ListGroup.Item>
               <h4>Payment Method</h4>
-              <strong>Payment Method: </strong>
-              {order.paymentMethod}
+              <p>
+                <strong>Method: </strong>
+                {order.paymentMethod}
+              </p>
+              {order.isPaid ? (
+                <Message variant='success'>Paid on {order.paidAt}</Message>
+              ) : (
+                <Message variant='danger'>Not Paid</Message>
+              )}
             </ListGroup.Item>
+
             <ListGroup.Item>
               <h4>Order Items</h4>
               {order.orderItems.length === 0 ? (
