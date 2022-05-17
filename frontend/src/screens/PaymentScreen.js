@@ -53,7 +53,7 @@ const PaymentScreen = () => {
               value='stripe'
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            <i class='fa-brands fa-cc-stripe'></i>
+            <i className='fa-brands fa-cc-stripe'></i>
           </Col>
         </Form.Group>
         <br></br>

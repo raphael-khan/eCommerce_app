@@ -1,27 +1,28 @@
 import React, { useEffect } from "react"
 import { Row, Col, ListGroup, Image, Card } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Message from "../components/Message"
 import Loader from "../components/CheckoutSteps"
 import { getOrderDetails } from "../actions/orderActions"
 
-const OrderScreen = ({ match }) => {
-  const orderId = match.params.id
+const OrderScreen = () => {
+  const params = useParams()
+  const orderId = params.id
   const dispatch = useDispatch()
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
 
   if (!loading) {
+    order.itemsPrice = order.orderItems.reduce(
+      (acc, item) => acc + item.price * item.qty,
+      0
+    )
   }
-  order.itemsPrice = order.orderItems.reduce(
-    (acc, item) => acc + item.price * item.qty,
-    0
-  )
 
   useEffect(() => {
-    if (order) {
+    if (!order || order._id !== orderId) {
       dispatch(getOrderDetails(orderId))
     }
   }, [orderId, dispatch, order])
@@ -32,21 +33,20 @@ const OrderScreen = ({ match }) => {
     <Message variant='danger'>{error}</Message>
   ) : (
     <>
-      <h1>Order {order._id}</h1>
       <Row>
         <Col md={8}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>Shipping</h2>
+              <h4>Shipping Details</h4>
               <p>
-                <strong>Name:</strong> {order.user.name}
+                <strong>Name :</strong> {order.user.name}
               </p>
               <p>
-                <strong>Email:</strong>
-                <a href={`mailto:${order.user.email}`}>{order.user.email} </a>
+                <strong>Email :</strong>
+                <a href={`mailto:${order.user.email}`}> {order.user.email} </a>
               </p>
               <p>
-                <strong>Address: </strong>
+                <strong>Address : </strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city},
                 {order.shippingAddress.zipCode}, {order.shippingAddress.country}
               </p>
@@ -61,7 +61,7 @@ const OrderScreen = ({ match }) => {
             <ListGroup.Item>
               <h4>Payment Method</h4>
               <p>
-                <strong>Method: </strong>
+                <strong>Method : </strong>
                 {order.paymentMethod}
               </p>
               {order.isPaid ? (
