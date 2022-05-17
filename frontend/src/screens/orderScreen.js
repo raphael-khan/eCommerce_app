@@ -6,7 +6,7 @@ import Message from "../components/Message"
 import Loader from "../components/CheckoutSteps"
 import { getOrderDetails } from "../actions/orderActions"
 
-const orderScreen = ({ match }) => {
+const OrderScreen = ({ match }) => {
   const orderId = match.params.id
   const dispatch = useDispatch()
 
@@ -124,4 +124,4 @@ const orderScreen = ({ match }) => {
   )
 }
 
-export default orderScreen
+export default OrderScreen
