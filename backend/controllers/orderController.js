@@ -67,12 +67,13 @@ const updateOrderToPaid = asyncHandler(async (req, res) => {
     order.paymentResult = {
       id: req.body.id,
       status: req.body.status,
-      updateTime: req.body.updateTime,
-      emailAddress: req.body.payer.emailAddress,
+      update_Time: req.body.updateTime,
+      email_address: req.body.payer.emailAddress,
     }
 
     const updatedOrder = await order.save()
     res.json(updatedOrder)
+    console.log(updatedOrder)
   } else {
     res.status(404)
     throw new Error("Order not found")
