@@ -8,6 +8,7 @@ import { composeWithDevTools } from "redux-devtools-extension"
 import {
   productListReducer,
   productDetailsReducer,
+  productReviewCreateReducer,
 } from "./reducers/productReducers"
 import { cartReducer } from "./reducers/cartReducers"
 import {
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
+  productReviewCreate: productReviewCreateReducer,
 })
 
 //Parsing cartItems out of local storage
