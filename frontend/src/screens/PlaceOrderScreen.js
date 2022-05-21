@@ -14,13 +14,15 @@ const PlaceOrderScreen = () => {
   const cart = useSelector((state) => state.cart)
 
   // Calculate Prices.
+  const addDecimals = (num) => {
+    return (Math.round(num * 100) / 100).toFixed(2)
+  }
 
-  cart.itemsPrice = cart.cartItems.reduce(
-    (acc, item) => acc + item.price * item.qty,
-    0
+  cart.itemsPrice = addDecimals(
+    cart.cartItems.reduce((acc, item) => acc + item.price * item.qty, 0)
   )
-  cart.shippingPrice = cart.itemsPrice > 35 ? 0 : 5.99
-  cart.taxPrice = (0.15 * cart.itemsPrice).toFixed(2)
+  cart.shippingPrice = addDecimals(cart.itemsPrice > 35 ? 0 : 5.99)
+  cart.taxPrice = addDecimals((0.15 * cart.itemsPrice).toFixed(2))
 
   cart.totalPrice = (
     Number(cart.itemsPrice) +
