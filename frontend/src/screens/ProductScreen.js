@@ -41,12 +41,28 @@ const ProductScreen = () => {
     productReviewCreate
 
   useEffect(() => {
+    if (successProductReview) {
+      alert("Review Submitted!")
+      setRating(0)
+      setComment("")
+      dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
+    }
     dispatch(listProductDetails(params.id))
-  }, [dispatch, params])
+  }, [dispatch, params, successProductReview])
 
   const navigate = useNavigate()
   const addToCartHandler = () => {
     navigate(`/cart/${params.id}?qty=${qty}`)
+  }
+
+  const submitHandler = (e) => {
+    e.preventDefault()
+    dispatch(
+      createProductReview(params.id, {
+        rating,
+        comment,
+      })
+    )
   }
 
   return (
@@ -154,6 +170,9 @@ const ProductScreen = () => {
                 ))}
                 <ListGroup.Item>
                   <h4>Write a Customer Review</h4>
+                  {errorProductReview && (
+                    <Message variant='danger'>{errorProductReview}</Message>
+                  )}
                   {userInfo ? (
                     <Form onSubmit={submitHandler}>
                       <Form.Group controlId='rating'>
