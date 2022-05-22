@@ -8,7 +8,6 @@ import {
   PRODUCT_CREATE_REVIEW_REQUEST,
   PRODUCT_CREATE_REVIEW_SUCCESS,
   PRODUCT_CREATE_REVIEW_FAIL,
-  PRODUCT_CREATE_REVIEW_RESET,
 } from "../constants/productConstants"
 import axios from "axios"
 import { logout } from "./userActions"
