@@ -4,7 +4,14 @@ Roast Riders. ![favicon2 ico](https://user-images.githubusercontent.com/89990638
 A fuctional eCommerce shop with full CRUD capabilities, user authentication ( auth0, password hashing, SALT ), authorizaton (custom protected routes MiddleWare), and  two fully fucntioning payment system integrations that update the front and backend. 
 
 Made with reactJS, MongoDB database, Express for route handling and Node runtime. 
-Work in progres.. 
+Follows the MVC frameowrk as closely as possible. 
+Backend => Models. 
+        => Controllers. 
+        => Routes. 
+Frontend=> Components. 
+        => Screens.
+        => Reducers. 
+        => Actions. 
 
 Other technologies used:
   * Postman. Testing backend routes.
@@ -13,6 +20,8 @@ Other technologies used:
   * Heruko. For deployment. 
   * Paypal. (sandbox account)
   * MongoDB Compass. Database GUI. 
+  * React Bootstrap - For custom styling and layout. 
+  * Unsplash - For graphical images. 
  
 ![image](https://user-images.githubusercontent.com/89990638/164913311-79de501e-cdfc-489b-8ad5-1f029b38eba3.png)
 
