@@ -69,7 +69,7 @@ export const createProductReview =
       } = getState()
 
       const config = {
-        header: {
+        headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${userInfo.token}`,
         },
