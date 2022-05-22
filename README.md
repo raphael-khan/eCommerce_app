@@ -33,9 +33,6 @@ Other technologies used:
 
 ![image](https://user-images.githubusercontent.com/89990638/169661706-94dc9449-a6a0-4109-8cd5-9a86ec4ce90b.png)
 
-![image](https://user-images.githubusercontent.com/89990638/169721522-d8138e19-8948-42b8-9bbf-97e11b29486b.png)
-
-
 ![image](https://user-images.githubusercontent.com/89990638/169720677-320148ff-4a04-4361-afa3-eb3450751ef0.png)
 
 
