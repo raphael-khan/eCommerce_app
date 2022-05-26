@@ -7,7 +7,16 @@ import Product from "../models/productModel.js"
 //@asyncHandler helps catch errors without the Try block.
 
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find({}) // Passing an empty object to get everything. Mongoose method returns a promise.
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword, // Even if early is put in it will pull early bird.
+          $options: "i", // To make the search string case insensitive.
+        },
+      }
+    : {}
+
+  const products = await Product.find({ ...keyword }) // Passing an empty object to get everything. Mongoose method returns a promise.
   res.json(products)
 })
 
