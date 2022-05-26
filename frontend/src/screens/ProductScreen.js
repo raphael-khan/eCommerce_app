@@ -19,6 +19,7 @@ import {
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants"
 import Loader from "../components/Loader"
 import Message from "../components/Message"
+import Meta from "../components/Meta"
 
 // Product Screen components
 
@@ -76,6 +77,7 @@ const ProductScreen = () => {
         <Message>{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid></Image>

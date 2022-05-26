@@ -1,4 +1,5 @@
 import React, { useEffect } from "react"
+import Meta from "../components/Meta"
 import { Row, Col } from "react-bootstrap"
 import Product from "../components/Product"
 import { useDispatch, useSelector } from "react-redux"
@@ -12,18 +13,19 @@ import { useParams } from "react-router-dom"
 
 const HomeScreen = () => {
   const params = useParams()
-  const keyword = params.keyword
+  const keyword = params.keyword // checks for the keyword.
   const dispatch = useDispatch()
 
   const productList = useSelector((state) => state.productList)
   const { loading, error, products } = productList
 
   useEffect(() => {
-    dispatch(listProducts(keyword))
+    dispatch(listProducts(keyword)) // action that calls the products from the backend.
   }, [dispatch, keyword])
 
   return (
     <>
+      <Meta />
       <h4>Let's get caffeinated. Shop Around ! </h4>
       {loading ? (
         <Loader />
