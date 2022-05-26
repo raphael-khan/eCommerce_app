@@ -7,10 +7,10 @@ import Product from "../models/productModel.js"
 //@asyncHandler helps catch errors without the Try block.
 
 const getProducts = asyncHandler(async (req, res) => {
-  const keyword = req.query.keyword
+  const keyword = req.query.keyword //req.query gets the keyword from the req made.
     ? {
         name: {
-          $regex: req.query.keyword, // Even if early is put in it will pull early bird.
+          $regex: req.query.keyword, // Even if Early is put in it will pull Early Bird.
           $options: "i", // To make the search string case insensitive.
         },
       }
