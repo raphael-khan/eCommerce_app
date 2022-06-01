@@ -5,6 +5,7 @@ import productRoutes from "./routes/productRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js"
 import orderRoutes from "./routes/orderRoutes.js"
+import path from "path"
 
 dotenv.config()
 
@@ -13,10 +14,6 @@ connectDB()
 const app = express()
 
 app.use(express.json())
-
-app.get("/", (req, res) => {
-  res.send("API is running")
-})
 
 // Mount it.
 app.use("/api/products", productRoutes)
@@ -28,6 +25,9 @@ app.get("/api/config/paypal", (req, res) =>
   res.send(process.env.PAYPAL_CLIENT_ID)
 )
 
+const __dirname = path.resolve()
+app.use("/uploads", express.static(path.join(__dirname, "/uploads"))) // __dirname gets the cwd in the ES module.
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/frontend/build")))
 
@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === "production") {
   )
 } else {
   app.get("/", (req, res) => {
-    res.send("API is running")
+    res.send("API is running...")
   })
 }
 
