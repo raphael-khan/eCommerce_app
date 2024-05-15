@@ -5,7 +5,7 @@ A fuctional eCommerce shop made using the MERN stack with full CRUD capabilities
 
 Follows the MVC frameowrk as closely as possible. 
 
-Backend => Models. 
+Backend => Models.
         => Controllers. 
         => Routes. 
 Frontend=> Components. 
