@@ -3,7 +3,7 @@ Roast Riders. ![favicon2 ico](https://user-images.githubusercontent.com/89990638
 
 A fuctional eCommerce shop made using the MERN stack with full CRUD capabilities, user authentication ( password Hashing, SALT ), authorizaton (custom JWT Middleware), and a scaleable payment API that includes PayPal. Stripe to be added in the future.  
 
-Follows the MVC frameowrk as closely as possible. 
+Follows the MVC frameowrk as closely as possible.
 
 Backend => Models.
         => Controllers. 
